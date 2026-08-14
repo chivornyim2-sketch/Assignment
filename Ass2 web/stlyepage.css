@@ -1,0 +1,187 @@
+/* កំណត់ទម្រង់ទូទៅ (Global Styles) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* របារមុខងារខាងលើ (Navigation Bar) */
+.navbar {
+    background-color: black; /* ពណ៌បៃតង */
+    padding: 18px 50px;
+    display: flex;
+    gap: 100px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.2s;
+}
+
+.navbar a:hover {
+    opacity: 0.8;
+}
+.your-navbar-class {
+    position: fixed;   /* ធ្វើឱ្យម៉ឺនុយអណ្តែតថេរ */
+    top: 0;            /* ឱ្យជាប់នៅខាងលើបង្អស់ */
+    left: 0;           /* ឱ្យចាប់ផ្តើមពីឆ្វេងបង្អស់ */
+    width: 100%;       /* ឱ្យរត់ពេញទទឹងអេក្រង់ */
+    z-index: 1000;     /* ធានាថាវានៅពីលើ Layout ផ្សេងៗ */
+}
+/* ផ្ទាំងចំណងជើងធំ (Header Banner) */
+.header-banner {
+    background-color: lch(58.29% 8.22 82.71); /* ពណ៌ខៀវចាស់ */
+    color: white;
+    padding: 20px 50px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.logo {
+    height: 300px;
+    object-fit: contain;
+
+}
+.logo-container {
+    background-color:none; 
+    padding: 20px 20px; /* បើចង់ឱ្យប្រអប់លឿងធំទូលាយ អាចតម្លើងលេខ padding នេះបាន */
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-title {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;;
+    font-size: 48px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: black;
+}
+
+/* ផ្នែកមាតិកាព័ត៌មាន (Main Content Area) */
+.container {
+    max-width:1500px;
+    margin: auto;
+    padding: 30px;
+}
+.section-title {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* គ្រប់គ្រងប្លង់កាតព័ត៌មាន (News Grid Layout) */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.news-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-image img {
+    width: 100%;
+    height:320px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-content h3 {
+    font-size: 16px;
+    color: #0288d1; /* ពណ៌ខៀវចំណងជើងអត្ថបទ */
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.card-content a {
+    font-size: 18px;
+    color: black;
+    line-height: 2.0;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* ១. បន្ថែម overflow: hidden លើប្រអប់ជុំវិញដើម្បីកុំឱ្យរូបភាពពង្រីកធ្លាយចេញក្រៅ */
+.card-image {
+  overflow: hidden;
+}
+
+/* ២. ចាប់យក tag img ដែលនៅក្នុង class .card-image */
+.card-image img {
+  transition: transform 0.3s ease;
+  width: 100%; /* ធានាថារូបភាពរត់ពេញប្រអប់ */
+  display: block;
+}
+
+/* ៣. បង្កើត Effect ពង្រីករូបភាពនៅពេល mouse hover លើ card */
+.card-image:hover img {
+  transform: scale(1.05);
+}
+
+/* ផ្នែកខាងក្រោមគេហទំព័រ (Footer) */
+.footer {
+    background-color: black; /* ពណ៌បៃតងដូច Navbar */
+    color: white;
+    text-align: center;
+    padding: 18px 0;
+    margin-top: 40px;
+    font-size: 14px;
+}
+
+/* ជំនួយសម្រាប់ការបង្ហាញលើទូរស័ព្ទ (Responsive) */
+@media (max-width: 992px) {
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    .header-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 15px;
+    }
+}
